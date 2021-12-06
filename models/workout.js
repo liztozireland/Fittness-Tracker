@@ -12,7 +12,7 @@ const workoutSchema = new Schema({
       type: {
         type: String,
         trim: true,
-        required: "What Workout Are You Doing?",
+        required: "What Workout Are You Doing, Cardio or Resistance?",
       },
       name: {
         type: String,

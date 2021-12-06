@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 
 
@@ -22,10 +22,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useCreateIndex: true,
   useFindAndModify: false
 });
-
-// home routes
-// get exercises
-// get stats
 
 // routes
 app.use(require("./routes/htmlRoutes.js"));
