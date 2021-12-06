@@ -1,8 +1,8 @@
 let db;
-let budgetVersion;
+let workoutVersion;
 
-// Create a new db request for a "budget" database.
-const request = indexedDB.open('BudgetDB', budgetVersion || 21);
+// Create a new db request for a "workout" database.
+const request = indexedDB.open('workoutDB', workoutVersion || 21);
 
 request.onupgradeneeded = function (e) {
   console.log('Upgrade needed in IndexDB');
@@ -15,7 +15,7 @@ request.onupgradeneeded = function (e) {
   db = e.target.result;
 
   if (db.objectStoreNames.length === 0) {
-    db.createObjectStore('BudgetStore', { autoIncrement: true });
+    db.createObjectStore('WorkoutStore', { autoIncrement: true });
   }
 };
 
@@ -27,10 +27,10 @@ function checkDatabase() {
   console.log('check db invoked');
 
   // Open a transaction on your BudgetStore db
-  let transaction = db.transaction(['BudgetStore'], 'readwrite');
+  let transaction = db.transaction(['WorkoutStore'], 'readwrite');
 
   // access your BudgetStore object
-  const store = transaction.objectStore('BudgetStore');
+  const store = transaction.objectStore('WorkoutStore');
 
   // Get all records from store and set to a variable
   const getAll = store.getAll();
